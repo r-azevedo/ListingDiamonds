@@ -11,6 +11,7 @@ namespace DataAccess.Data
     public class ItemPhotoPropertySet
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required]
         public int ItemPhotoId { get; set; }
