@@ -11,12 +11,13 @@ namespace DataAccess.Data
     public class ItemPhotos
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public int? ItemId { get; set; }
         [Required]
         public int TypeId { get; set; }
         public string FileName { get; set; }
-        public string Position { get; set; }
+        public int Position { get; set; }
         public string Alt { get; set; }
         [Required]
         public DateTime CreatedAt { get; set; }
