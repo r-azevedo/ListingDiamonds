@@ -17,13 +17,13 @@ namespace DataAccess.Data
         [Required]
         public int TypeId { get; set; }
         public string FileName { get; set; }
-        public int Position { get; set; }
+        public int? Position { get; set; }
         public string Alt { get; set; }
         [Required]
         public DateTime CreatedAt { get; set; }
-        public DateTime ModifiedAt { get; set; }
+        public DateTime? ModifiedAt { get; set; }
         [Required]
-        public bool IsActive { get; set; }
+        public bool? IsActive { get; set; } //Set IsActive as a nullable bool so the default value will only be used for inserts when the property value is null
 
 
         [ForeignKey("ItemId")]
