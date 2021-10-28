@@ -62,7 +62,11 @@ namespace Business.Repository
 
         public async Task<IEnumerable<ItemPhotosDTO>> GetlAllItemPhotos()
         {
-            return _mapper.Map<IEnumerable<ItemPhotos>, IEnumerable<ItemPhotosDTO>>(await _db.ItemPhotos.ToListAsync());
+            return _mapper.Map<IEnumerable<ItemPhotos>, IEnumerable<ItemPhotosDTO>>(
+                await _db.ItemPhotos
+                .Include(i=>i.Item)
+                .Include(i=>i.Types)
+                .ToListAsync());
         }
 
         public async Task<ItemPhotosDTO> UpdateItemPhoto(int id, ItemPhotosDTO itemPhotoDTO)

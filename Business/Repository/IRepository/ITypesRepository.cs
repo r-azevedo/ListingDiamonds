@@ -9,10 +9,10 @@ namespace Business.Repository.IRepository
 {
     public interface ITypesRepository
     {
-        public Task<int> CreateTypesSet(TypesDTO typesDTO);
+        public Task<int> CreateTypes(TypesDTO typesDTO);
         public Task<int> DeleteTypesById(int id);
         public Task<TypesDTO> GetTypesById(int id);
-        public Task<TypesDTO> UpdateTypesSet(int id, TypesDTO typesDTO);
-        public Task<IEnumerable<TypesDTO>> GetlAllTypesSet();
+        public Task<TypesDTO> UpdateTypes(int id, TypesDTO typesDTO);
+        public Task<IEnumerable<TypesDTO>> GetlAllTypes();
     }
 }

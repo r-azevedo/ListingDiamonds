@@ -4,10 +4,11 @@ using Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace ItemsController.Controllers
+namespace ListingDiamonds.Controllers
 {
     
     [ApiController]
+    [Route("api/[controller]")]
     public class ItemsController : ControllerBase
     {
         private readonly IItemsRepository _itemsRepository;
@@ -19,8 +20,8 @@ namespace ItemsController.Controllers
         }
 
         [HttpGet]
-        [Route("api/[controller]/GetItems/")]
-        public async Task<IEnumerable<ItemsDTO>> GetItems(int? id = null)
+        [Route("GetItems")]
+        public async Task<IActionResult> GetItems(int? id = null)
         {
             if (id.HasValue && id.Value > 0)
             {
@@ -30,12 +31,13 @@ namespace ItemsController.Controllers
                 {
                     List<ItemsDTO> items = new List<ItemsDTO>();
                     items.Add(item);
-                    return items;
+                    return Ok(item);
                 }
             }
             else
-            {   
-                return await _itemsRepository.GetlAllItems();
+            {
+                var items = await _itemsRepository.GetlAllItems();
+                return Ok(items);
             }
             return null;
         }
