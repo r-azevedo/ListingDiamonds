@@ -12,8 +12,12 @@
 
 */
 
+const API_UploadImage = "https://localhost:44318/api/ItemPhotos/UploadImage?id=";
+const API_GetPhoto = "https://localhost:44318/Photos/";
+const API_GetItemPhotoPropertySet = "https://localhost:44318/api/ItemPhotoPropertySets/GetItemPhotoPropertySet";
+
 window.addEventListener('load', (event) => {
-    loadIntoTable("https://localhost:44318/api/ItemPhotoPropertySets/GetItemPhotoPropertySet");
+    loadIntoTable(API_GetItemPhotoPropertySet);
 });
 
 
@@ -134,7 +138,7 @@ async function loadIntoTable(url) {
                         btn.innerHTML = 'Edit';
                         btn.onclick = function (id) { uploadFile(id); } ;
                         btn.id = propertyValue.itemPhotos.ItemId;*/
-                        document.querySelector("table").rows[row].cells[column].innerHTML = '<img src="https://localhost:44318/Photos/' + propertyValue.itemPhotos.fileName + '" id="img_' + propertyValue.itemPhotos.id + '" />';
+                        document.querySelector("table").rows[row].cells[column].innerHTML = '<img src="' + API_GetPhoto + propertyValue.itemPhotos.fileName + '" id="img_' + propertyValue.itemPhotos.id + '" />';
                         document.querySelector("table").rows[row].cells[column].appendChild(btn);
 
                         columnSelected, rowSelected = false;
@@ -149,7 +153,7 @@ async function loadIntoTable(url) {
 }
 
 async function uploadFile(e) {
-    var uploadAPI = "https://localhost:44318/api/ItemPhotos/UploadImage?id=" + e.id;
+    var uploadAPI = API_UploadImage + e.id;
 
     var data = new FormData();
     data.append('formFile', e.files[0]);
@@ -164,7 +168,7 @@ async function uploadFile(e) {
     ).then(
         ok => {
             var img = document.getElementById("img_" + e.id);
-            img.setAttribute('src', "https://localhost:44318/Photos/" + e.files[0].name);
+            img.setAttribute('src', API_GetPhoto + e.files[0].name);
 
             window.location.href = window.location.href
         }
