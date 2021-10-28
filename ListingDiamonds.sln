@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListingDiamonds", "ListingD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{FF064B54-D5C3-476F-8CB3-BD386C9216F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{02F50037-CD9C-43A3-99C2-6771EF7B221A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{02F50037-CD9C-43A3-99C2-6771EF7B221A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{EF9E0027-89FC-416A-8A74-A10B667253A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{EF9E0027-89FC-416A-8A74-A10B667253A0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListingDiamonds_Client", "ListingDiamonds_Client\ListingDiamonds_Client.csproj", "{88D052C3-1D2F-4DA8-9978-9D9CE1390C31}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{EF9E0027-89FC-416A-8A74-A10B667253A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF9E0027-89FC-416A-8A74-A10B667253A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF9E0027-89FC-416A-8A74-A10B667253A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88D052C3-1D2F-4DA8-9978-9D9CE1390C31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88D052C3-1D2F-4DA8-9978-9D9CE1390C31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88D052C3-1D2F-4DA8-9978-9D9CE1390C31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88D052C3-1D2F-4DA8-9978-9D9CE1390C31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
