@@ -57,7 +57,7 @@ namespace Business.Repository
 
         public async Task<IEnumerable<TypePropertySetDTO>> GetlAllTypePropertySet()
         {
-            return _mapper.Map<IEnumerable<TypePropertySet>, IEnumerable<TypePropertySetDTO>>(await _db.TypePropertySets.ToListAsync());
+            return _mapper.Map<IEnumerable<TypePropertySet>, IEnumerable<TypePropertySetDTO>>(await _db.TypePropertySets.Include(t=>t.Properties).Include(t=>t.Types).ToListAsync());
         }
 
         public async Task<TypePropertySetDTO> GetTypePropertySetById(int id)

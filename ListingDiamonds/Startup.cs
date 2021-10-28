@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ItemsController
+namespace ListingDiamonds
 {
     public class Startup
     {
@@ -42,6 +42,16 @@ namespace ItemsController
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddScoped<IItemsRepository, ItemsRepository>();
+            services.AddScoped<ITypesRepository, TypesRepository>();
+            services.AddScoped<IItemPhotoPropertySetRepository, ItemPhotoPropertySetRepository>();
+            services.AddScoped<IItemPhotosRepository, ItemPhotosRepository>();
+            services.AddScoped<IPropertiesRepository, PropertiesRepository>();
+            services.AddScoped<ITypePropertySetRepository, TypePropertySetRepository>();
+
+            services.AddCors(o => o.AddPolicy("ListingDiamonds", builder =>
+            {
+                builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+            }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,8 +65,10 @@ namespace ItemsController
             }
 
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseCors("ListingDiamonds");
 
             app.UseAuthorization();
 

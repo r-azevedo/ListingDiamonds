@@ -21,7 +21,7 @@ namespace Business.Repository
             _mapper = mapper;
         }
 
-        public async Task<int> CreateTypesSet(TypesDTO typesDTO)
+        public async Task<int> CreateTypes(TypesDTO typesDTO)
         {
             try
             {
@@ -54,7 +54,7 @@ namespace Business.Repository
                 throw ex;
             }
         }
-        public async Task<IEnumerable<TypesDTO>> GetlAllTypesSet()
+        public async Task<IEnumerable<TypesDTO>> GetlAllTypes()
         {
             return _mapper.Map<IEnumerable<Types>, IEnumerable<TypesDTO>>(await _db.Types.ToListAsync());
         }
@@ -64,7 +64,7 @@ namespace Business.Repository
             return _mapper.Map<Types, TypesDTO>(await _db.Types.FindAsync(id));
         }
 
-        public async Task<TypesDTO> UpdateTypesSet(int id, TypesDTO typesDTO)
+        public async Task<TypesDTO> UpdateTypes(int id, TypesDTO typesDTO)
         {
             try
             {
